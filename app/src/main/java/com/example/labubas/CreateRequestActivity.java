@@ -102,6 +102,10 @@ public class CreateRequestActivity extends AppCompatActivity {
             Toast.makeText(this, "Заполните имя, авто и дату!", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (phone.length() < 18) {
+            Toast.makeText(this, "Введите номер телефона полностью!", Toast.LENGTH_SHORT).show();
+            return; // Останавливаем код, не сохраняем
+        }
 
         Map<String, String> newRequest = new HashMap<>();
         newRequest.put("ownerName", owner);

@@ -160,6 +160,13 @@ public class EditRequestActivity extends AppCompatActivity {
     }
 
     private void updateData() {
+        String phone = etPhone.getText().toString();
+
+        if (phone.length() < 18) {
+            Toast.makeText(this, "Номер введен не полностью!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Map<String, String> updatedRequest = new HashMap<>();
         updatedRequest.put("ownerName", etOwner.getText().toString());
         updatedRequest.put("phoneNumber", etPhone.getText().toString());
@@ -167,6 +174,7 @@ public class EditRequestActivity extends AppCompatActivity {
         updatedRequest.put("issueDescription", etIssue.getText().toString());
         updatedRequest.put("date", etDate.getText().toString());
         updatedRequest.put("time", etTime.getText().toString());
+
 
         db.updateRepairRequest(requestId, updatedRequest);
         Toast.makeText(this, "Данные обновлены", Toast.LENGTH_SHORT).show();

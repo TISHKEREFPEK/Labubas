@@ -156,6 +156,12 @@ public class EditPaintingActivity extends AppCompatActivity {
     }
 
     private void updateData() {
+        String phone = etPhone.getText().toString();
+
+        if (phone.length() < 18) {
+            Toast.makeText(this, "Номер введен не полностью!", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Map<String, String> updatedRequest = new HashMap<>();
         updatedRequest.put("ownerName", etOwner.getText().toString());
         updatedRequest.put("phoneNumber", etPhone.getText().toString());

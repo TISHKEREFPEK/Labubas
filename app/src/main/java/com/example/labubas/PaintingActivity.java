@@ -101,6 +101,11 @@ public class PaintingActivity extends AppCompatActivity {
             Toast.makeText(this, "Заполните основные поля!", Toast.LENGTH_SHORT).show();
             return;
         }
+        if (phone.length() < 18) {
+            Toast.makeText(this, "Введите номер телефона полностью!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         Map<String, String> newRequest = new HashMap<>();
         newRequest.put("ownerName", owner);
